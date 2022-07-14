@@ -17,7 +17,7 @@ class CustomDialogFragment : DialogFragment() {
     private lateinit var etUsername: EditText
     private lateinit var checkBox: CheckBox
     private lateinit var btnDone: Button
-    lateinit var listener: CustomDialogListener
+    private lateinit var listener: DialogListener.CustomDialogListener
 
 
     override fun onCreateView(
@@ -44,7 +44,7 @@ class CustomDialogFragment : DialogFragment() {
         dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 
-    fun setCallbackListener(listener: CustomDialogListener) {
+    fun setCallbackListener(listener: DialogListener.CustomDialogListener) {
         this.listener = listener
     }
 
