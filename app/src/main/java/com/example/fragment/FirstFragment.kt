@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -33,16 +34,23 @@ class FirstFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         editTextUsername = view.findViewById(R.id.etName)!!
         btnLogin = view.findViewById(R.id.btnLogin)!!
-        btnLogin.setOnClickListener() {
-            val bundle = Bundle()
-            bundle.putString(LoginFragmentListener.nameKey(), editTextUsername.text.toString())
-            listener.onLoginPressed(bundle)
+        editTextUsername.setOnEditorActionListener() { _, actionId: Int, _ ->
+            val isDonePressed = actionId == EditorInfo.IME_ACTION_DONE
+            if (isDonePressed) onLoginListener()
+            false
         }
+        btnLogin.setOnClickListener() { onLoginListener() }
         super.onViewCreated(view, savedInstanceState)
     }
 
     fun setFragmentListener(listener: LoginFragmentListener) {
         this.listener = listener
+    }
+
+    private fun onLoginListener() {
+        val bundle = Bundle()
+        bundle.putString(LoginFragmentListener.nameKey(), editTextUsername.text.toString())
+        listener.onLoginPressed(bundle)
     }
 
 }
