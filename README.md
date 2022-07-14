@@ -1,5 +1,5 @@
 # android_fragment
 
-https://user-images.githubusercontent.com/59445273/178769073-32f458b2-758c-4bfe-ba9d-0618b96da15a.mp4
 
-### A better usecase would be dialogs
+https://user-images.githubusercontent.com/59445273/178940682-3ce699a1-e93a-42ff-af18-6b425875bb1d.mp4
+
