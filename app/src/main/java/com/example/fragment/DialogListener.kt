@@ -5,6 +5,7 @@ import android.view.View
 sealed interface DialogListener {
     interface CustomDialogListener : DialogListener {
         fun onShowCustomDialogPressed(view: View)
+        fun onShowBottomSheetPressed(view: View)
         fun onDonePressed(name: String)
     }
 

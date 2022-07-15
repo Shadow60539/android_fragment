@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), DialogListener.CustomDialogListener,
 
     override fun onShowCustomDialogPressed(view: View) {
         val dialog = CustomDialogFragment()
-        dialog.setCallbackListener(this)
+        dialog.setListener(this)
         dialog.show(fm, null)
     }
 
@@ -33,6 +33,12 @@ class MainActivity : AppCompatActivity(), DialogListener.CustomDialogListener,
         val dialog = TimePickerDialogFragment()
         dialog.setCallbackListener(this)
         dialog.show(fm, null)
+    }
+
+    override fun onShowBottomSheetPressed(view: View) {
+        val dialog = ModalBottomSheet()
+        dialog.setListener(this)
+        dialog.show(fm, ModalBottomSheet.TAG)
     }
 
     override fun onDonePressed(name: String) {
